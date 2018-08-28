@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import sys
-import numpy as np
+#import numpy as np
 
-fly_names = {}
+#fly_names = {}
 a = 0
     
 for i, line in enumerate(sys.stdin):
