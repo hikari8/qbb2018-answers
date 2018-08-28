@@ -8,15 +8,15 @@ else:
     f = sys.stdin
 
 i = 0
-a = 0
-tot=0
-ct=0
+tot = 0
+ct = 0
 
 for i, line in enumerate(f):
-    if line.startswith("SRR072893"):
+    if line.startswith("SRR"):
         fields = line.rstrip("\r\n").split("\t")
         a = int(fields[4])
-        tot+=a
-        ct+=1
+        tot += a
+        ct += 1
+        avg = tot/ct
         
-print(tot/ct)
+print(avg)
