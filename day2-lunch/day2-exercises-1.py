@@ -7,7 +7,6 @@ if len(sys.argv) > 1:
 else:
     f = sys.stdin
 
-i = 0
 a = 0
 
 for i, line in enumerate(f):
