@@ -8,9 +8,10 @@ else:
     f = sys.stdin
 
 i = 0
+a = 0
 
 for i, line in enumerate(f):
     if line.startswith("SRR"):
-        i += 1
+        a += 1
         
-print(i)
+print("There are " + str(a) + " alignments.")
