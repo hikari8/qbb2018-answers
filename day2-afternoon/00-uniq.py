@@ -30,7 +30,7 @@ for i, line in enumerate(sys.stdin):
 #for name in gene_names_seen:
 for name, value in gene_name_counts.items():
     #print(name)
-    print(name, value)
+    print(name, value)c
 
 # The code that looked at lists took some time (4.3s)
 # Dictionary took an order of magnitude faster.
