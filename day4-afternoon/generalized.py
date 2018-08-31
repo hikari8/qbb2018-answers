@@ -3,7 +3,7 @@
 """
 Usage: ./generalized.py <gene_name> <samples.csv> <ctab_dir>
 Create a plot for genes of interest.
-ex: ./for_males.py FBtr0331261 ~/qbb2018/samples.csv ~/data/results/stringtie/
+ex: ./generalized.py Sxl ~/qbb2018/samples.csv ~/data/results/stringtie/
 """
 
 import sys
