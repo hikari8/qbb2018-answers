@@ -1,0 +1,31 @@
+t_data.ctab
+Index(['h3k4me1', 'h3k4me3', 'h3k9ac', 'h3k27ac', 'h3k27me3', 'fpkm'], dtype='object')
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   fpkm   R-squared:                       0.000
+Model:                            OLS   Adj. R-squared:                  0.000
+Method:                 Least Squares   F-statistic:                     1.546
+Date:                Fri, 31 Aug 2018   Prob (F-statistic):              0.172
+Time:                        16:44:01   Log-Likelihood:            -2.0497e+05
+No. Observations:               34717   AIC:                         4.100e+05
+Df Residuals:                   34711   BIC:                         4.100e+05
+Df Model:                           5                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     13.7137      0.562     24.396      0.000      12.612      14.815
+h3k4me1        0.0273      0.107      0.255      0.799      -0.183       0.237
+h3k4me3       -0.2016      0.190     -1.060      0.289      -0.574       0.171
+h3k9ac         0.5385      0.300      1.798      0.072      -0.049       1.126
+h3k27ac       -0.1729      0.194     -0.891      0.373      -0.553       0.207
+h3k27me3      -0.4551      0.188     -2.417      0.016      -0.824      -0.086
+==============================================================================
+Omnibus:                    86647.847   Durbin-Watson:                   1.857
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):       2415309553.109
+Skew:                          27.045   Prob(JB):                         0.00
+Kurtosis:                    1294.041   Cond. No.                         5.33
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
