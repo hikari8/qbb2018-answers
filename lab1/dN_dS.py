@@ -114,11 +114,11 @@ for i, difference in enumerate(difference_per_entry):
         std_error = std / sqrt(number_of_mutation[i])
         z = difference/std_error
         # z = (Dc - Dn)/ SE (Dc is difference at each codon, Dn is null hypothesis, so 0)
-        if z < -3.29:
+        if z < -1.645:
             pos_selection[i] = np.log(ratio_per_entry[i])
         else:
             not_pos_selection[i] = np.log(ratio_per_entry[i])
-        # p < 0.001, so significant z values are z < -3.29
+        # p < 0.05, so significant z values are z < -1.645
 
 # PART 4: Plotting dN/dS against codon position.
 
