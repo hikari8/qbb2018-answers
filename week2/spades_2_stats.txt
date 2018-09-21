@@ -1,0 +1,6 @@
+Genome length is 100000
+Number of contigs is 1
+Minimum is 100000
+Maximum is 100000
+Mean is 100000.0
+Length of n50 contig is 100000

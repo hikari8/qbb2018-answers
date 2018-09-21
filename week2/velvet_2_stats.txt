@@ -1,0 +1,6 @@
+Genome length is 100039
+Number of contigs is 17
+Minimum is 41
+Maximum is 27802
+Mean is 5884.64705882353
+Length of n50 contig is 13390
