@@ -1,0 +1,8 @@
+Quantitative Biology Week 4 Command Runs
+
+unxz BYxRM_segs_saccer3.bam.simplified.vcf.xz
+-to decompress downloaded xz file
+
+plink --vcf BYxRM_segs_saccer3.bam.simplified.vcf --allow-extra-chr --pca 10 --out plinkpca_output 
+-output is plinkpca_output.log  plinkpca_output.irem  plinkpca_output.nosex  plinkpca_output.eigenval  plinkpca_output.eigenvec
+
