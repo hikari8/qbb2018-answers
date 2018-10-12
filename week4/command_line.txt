@@ -6,3 +6,5 @@ unxz BYxRM_segs_saccer3.bam.simplified.vcf.xz
 plink --vcf BYxRM_segs_saccer3.bam.simplified.vcf --allow-extra-chr --pca 10 --out plinkpca_output 
 -output is plinkpca_output.log  plinkpca_output.irem  plinkpca_output.nosex  plinkpca_output.eigenval  plinkpca_output.eigenvec
 
+plink --vcf BYxRM_segs_saccer3.bam.simplified.vcf --pheno pheno.txt --assoc --allow-no-sex --mind --allow-extra-chr --all-pheno
+
