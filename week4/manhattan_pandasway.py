@@ -38,7 +38,7 @@ for fname in sys.argv[1:]:
         sig_filter = (group['P'] > 5)
         # I guess this if statement is just in case there are no significant SNPs?
         # Weird how the Manhattan plots looks bad when I indent the non-sig stuff too.
-        # Come back to the script and try bringing the ~sig_filter before the if loop to see if plots still looks okay.
+        # Come back to the script and try bringing the ~sig_filter before the if statement to see if plots still looks okay.
         if sum(sig_filter) > 0:
             group['P'][sig_filter].plot(ax=ax, **{'style':'.','c':highlights[i%2]})
         group['P'][~sig_filter].plot(ax=ax, **{'style':'.','c':colors[i%2]})
