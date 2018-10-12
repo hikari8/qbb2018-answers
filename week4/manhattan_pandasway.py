@@ -16,6 +16,8 @@ chrom_order = [
     'chrXI','chrXII','chrXIII','chrXIV','chrXV',
     'chrXVI','23','26']
 
+# I might come back and change the colors later
+# https://matplotlib.org/examples/color/named_colors.html for color names
 colors = ['mediumvioletred', 'steelblue']
 highlights = ['magenta', 'cyan']
 
@@ -32,13 +34,18 @@ for fname in sys.argv[1:]:
     tick_positions = []
     
     for i, (chrom, group) in enumerate(df.groupby('CHR', sort=False)):
+        # sig_filter singles out the data points that are above the set threhold of p-value < 0.00001
         sig_filter = (group['P'] > 5)
+        # I guess this if statement is just in case there are no significant SNPs?
+        # Weird how the Manhattan plots looks bad when I indent the non-sig stuff too.
+        # Come back to the script and try bringing the ~sig_filter before the if loop to see if plots still looks okay.
         if sum(sig_filter) > 0:
             group['P'][sig_filter].plot(ax=ax, **{'style':'.','c':highlights[i%2]})
         group['P'][~sig_filter].plot(ax=ax, **{'style':'.','c':colors[i%2]})
         tick_labels.append(chrom)
         tick_positions.append(np.median(group.index.values))
         
+    # Add a dotted line to the cut-off point
     ax.axhline(5, c='k', ls=':', label='Significance cutoff')
     ax.set_xticks(tick_positions)
     ax.set_xticklabels(tick_labels)
