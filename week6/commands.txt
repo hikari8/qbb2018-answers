@@ -1,0 +1,20 @@
+tar -x -J -f g1e.tar.xz
+gunzip chr19.fa.gz
+conda create -n macs2 macs2
+source activate macs2
+
+bowtie2-build chr19.fa chr19_ind
+
+bowtie2 -p 4 -x index/chr19_ind input_ER4.fastq > input_ER4.fastqfile.sam
+bowtie2 -p 4 -x index/chr19_ind input_G1E.fastq > input_G1E.fastqfile.sam
+bowtie2 -p 4 -x index/chr19_ind CTCF_ER4.fastq > CTCF_ER4.fastqfile.sam
+bowtie2 -p 4 -x index/chr19_ind CTCF_G1E.fastq > CTCF_G1E.fastqfile.sam
+
+macs2 callpeak -t CTCF_G1E.fastqfile.sam -c input_G1E.fastqfile.sam -g 61431566 -n G1E
+macs2 callpeak -t CTCF_ER4.fastqfile.sam -c input_ER4.fastqfile.sam -g 61431566 -n ER4
+
+bedtools intersect -a macs2_output_G1E_peaks.narrowPeak -b macs2_output_ER4_peaks.narrowPeak -v > bedtools_output_overlap.bed
+
+bedtools intersect -a macs2_output_ER4_peaks.narrowPeak -b macs2_output_G1E_peaks.narrowPeak -v > bedtools_output_not_overlap.bed
+
+./chip_seq.py Mus_muculus.GRCm38.94_features.bed bedtools_output_overlap.bed bedtools_output_not_overlap.bed
