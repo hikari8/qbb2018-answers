@@ -1,0 +1,11 @@
+gunzip motif_databases.12.18.tgz
+
+sort -k 9 -n -r ER4_peaks.narrowPeak | head -n 100 > strongest100peaks
+
+samtools faidx chr19.fa
+
+bedtools getfasta -fi chr19.fa -bed 100topchip.narrow.peak > fastatop100
+
+meme-chip -db motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme -meme-maxw 20 fastatop100
+ 
+bedtools intersect -a /Users/cmdb/qbb2018-answers/week8-hw/memechip_out/fimo_out_1/fimo.gff -b 100topchip.narrow.peak -wa -wb > bedtools_intersect_output.bed
